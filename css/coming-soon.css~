@@ -1,0 +1,144 @@
+/*
+ * Copyright 2012 soundarapandian.
+ * Comming soon page build on Twitter Bootstrap.
+ */
+body {
+  background-image: url("../img/bg.png");
+}
+
+/****************** Full screen slider start **************/
+.full-screen-slider {
+  opacity: 0.8;
+}
+
+.full-screen-slider img {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.full-screen-slider img {
+  display: none;
+}
+
+.full-screen-slider img.active {
+  display: block;
+}
+/****************** Full screen slider end **************/
+
+
+/****************** Widget start **************/
+input:focus:required:invalid:focus {
+  border-color: rgba(82,168,236, 0.8);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0 none;
+  color: inherit;
+}
+
+.container {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  width: 80%;
+}
+
+.widget {
+  color: black;
+  padding: 30px 20px;
+}
+
+.brand {
+  font-size: 80px;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.description {
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 30px;
+  margin-bottom: 140px;
+}
+
+.subscribe-container {
+  margin: 0 auto;
+  width: 40%;
+  position: relative;
+  bottom: 195px;
+}
+
+.subscribe-box {
+  width: 300px;
+  line-height: 23px !important;
+  padding: 8px !important;
+  font-size: 20px !important;
+}
+
+.subscribe-btn {
+  padding: 8px;
+  border-radius: 0 5px 5px 0 !important;
+}
+
+.timer {
+  font-size: 35px;
+  width: 50%;
+  margin: 0 auto;
+}
+/****************** Widget end **************/
+
+/****************** Footer start **************/
+.copyright {
+  font-weight: bold;
+  padding: 10px;
+  position: relative;
+  bottom: 10px;
+}
+
+.social {
+  padding: 10px 0;
+  position: relative;
+  bottom: 10px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.social a {
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: 26px;
+}
+/****************** Footer end **************/
+
+
+/**************** Helpers start ***********/
+.align-center {
+  text-align: center;
+}
+
+.rounded-corner {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.lighting-border {
+  -moz-box-shadow: 0 0 15px darkmagenta;
+  -webkit-box-shadow: 0 0 15px darkmagenta;
+  box-shadow: 0 0 15px darkmagenta;
+}
+
+.transparent {
+  background-color: white;
+  /* IE 8 support */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /* IE 5-7 */
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+/**************** Helpers end ***********/

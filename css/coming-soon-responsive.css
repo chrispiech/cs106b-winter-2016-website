@@ -1,0 +1,109 @@
+/* 
+ * Copyright 2012 soundarapandian
+ * Licensed under the Apache License, Version 2.0
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+
+  Responsive styles for coming soon page
+  Tested in the below device simulations.
+  Apple iPhone
+    320x480 Portrait
+    480x320 Landscape
+  Apple iPhone 5
+    320x568 Portrait
+    568x320 Landscape
+  Small Tablet
+    600x800 Portrait
+    800x600 Landscape
+  Tablet
+    768x1024 Portrait
+    1024x768 Landscape
+  Widescreen
+    1280x800 Landscape
+    800x1280 Portrait
+ */
+@media (max-width: 1024px) {
+  .form-search {
+    width: 49%;
+  }
+}
+
+@media (max-width: 800px) {
+  .form-search {
+    width: 62%;
+  }
+  .timer {
+    font-size: 30px;
+    width: 63%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-search {
+    width: 73%;
+  }
+  .timer {
+    font-size: 30px;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 568px) {
+  .form-search {
+    width: 77%;
+  }
+  .timer {
+    width: 100%;
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-search {
+    width: 90%;
+  }
+  .timer {
+    width: 100%;
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 88%;
+    left: 6%;
+  }
+  .form-search {
+    width: 88%;
+  }
+  .subscribe-box {
+    width: 128px !important;
+    font-size: 15px !important;
+  }
+  .timer {
+    font-size: 20px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+  .description {
+    font-size: 23px;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 568px) {
+  .footer .copyright {
+    margin-bottom: 10px;
+    display: block;
+  }
+}
