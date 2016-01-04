@@ -41,12 +41,7 @@ class Compiler(object):
             os.makedirs(dirPath)
         
     def getPathToRoot(self, relativePath):
-        dirs = self.splitDirs(relativePath)
-        depth = len(dirs) - 1
-        pathToRoot = ''
-        for _ in range(depth):
-            pathToRoot += '../'
-        return pathToRoot
+        return "http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164"
 
     def splitDirs(self, filePath):
         if filePath == '': return []
