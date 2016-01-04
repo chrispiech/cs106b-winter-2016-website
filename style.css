@@ -1,0 +1,84 @@
+
+
+.container { max-width: 760px; } 
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+p {
+  text-align: justify;
+}
+
+.subtleHeading {
+    font-size: 12px;
+    font-weight: 700;
+    color: #959595;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.moment{
+  font-style:italic;
+}
+
+
+.well{
+    background-color: aliceblue;
+        border-color: #bce8f1;
+}
+
+
+/* Index */
+#title {
+  font-size:30px;
+    font-weight:bold;
+}
+
+.staffBox {
+  text-align: left !important;
+}
+
+#logoImg {
+  float: left;
+  width: 85px;
+}
+
+#headerText {
+    margin-left:10px;
+    float:left;
+}
+
+.newsfeedTitle {
+  font-size:14px;
+  color: #3b5998;
+  font-weight:bold;
+}
+
+.sidebaricon {
+  width:15px !important;
+  margin-right: 5px;
+  margin-bottom:5px;
+}
+
+.newsfeedHeader {
+  margin-bottom:5px;
+}
+
+.google-maps {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.staffImg {
+  height:150px;
+}
