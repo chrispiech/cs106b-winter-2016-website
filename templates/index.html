@@ -142,8 +142,23 @@
 
 					<div class="well">
 						<div class="newsfeedHeader">
+							<div class="newsfeedTitle">First Class</div>
+							<div class="moment">2016010411</div>
+						</div>
+
+						<p>
+							Thanks for coming! That was exciting :). <a href="{{pathToRoot}}/lectures/0-Welcome/0-Welcome.pptx">Here</a> are the slides that went with the lecture. Also take a look at the course <a href="{{pathToRoot}}/handouts/overview.html">overview</a> page for general course logistics. Future slide decks and lecture code will be posted in the schedule. Looking forward to Wednesday. Here is a cartoon of the <a href="{{pathToRoot}}/handouts/overview.html">syllabus</a>:<br/>
+							<img src="{{pathToRoot}}/img/overview/overview.png" style="width:80%"></img> <br/>
+							
+						</p>
+						
+
+					</div>
+
+					<div class="well">
+						<div class="newsfeedHeader">
 							<div class="newsfeedTitle">Sign Up for Piazza</div>
-							<div class="moment">20160104</div>
+							<div class="moment">2016010400</div>
 						</div>
 
 						<p>
@@ -155,8 +170,8 @@
 
 					<div class="well">
 						<div class="newsfeedHeader">
-							<div class="newsfeedTitle">First Day of Class</div>
-							<div class="moment">20160101</div>
+							<div class="newsfeedTitle">Class Location</div>
+							<div class="moment">2016010100</div>
 						</div>
 
 						<p>
@@ -171,7 +186,7 @@
 					<div class="well">
 						<div class="newsfeedHeader">
 							<div class="newsfeedTitle">Welcome!</div>
-							<div class="moment">20160101</div>
+							<div class="moment">2016010100</div>
 						</div>
 
 						<p>
@@ -192,7 +207,7 @@
 		$( ".moment" ).each(function( i ) {
 			var date = $(this).html()
 
-			var fromStr = moment(date, "YYYYMMDD").fromNow()
+			var fromStr = moment(date, "YYYYMMDDHH").fromNow()
 
 			$(this).html(fromStr)
 		  });
