@@ -1,0 +1,228 @@
+<head>
+
+<title>CS106B</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF8">
+
+
+<link href="../plugins/bootstrap-custom/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+<!-- Java Script -->
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/moment.min.js"></script>
+<script src="../plugins/bootstrap-custom/js/bootstrap.min.js"></script>
+
+<!-- Stanford -->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+	<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand brand" href="/">CS106B</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <!--<li><a href="#">Lectures</a></li>-->
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Handouts <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/handouts/overview.html">Course Overview</a></li>
+            <li><a href="/handouts/course-placement.pdf">Course Placement</a></li>
+            <li><a href="/handouts/honor-code.pdf">Honor Code</a></li>
+            <li><a href="/handouts/qt-creator.html">QT Creator</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assignments <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="#"><i>None yet!</i></a></li>
+
+          </ul>
+        </li>
+       
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/handouts/overview.html"><span class="glyphicon glyphicon-apple" aria-hidden="true"></span></a></li>
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div class="container">
+			
+		<!-- Header -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="pageHeader">
+					<h1>
+						How to Use QT Creator
+					</h1>
+					
+
+				</div>
+				<hr/>
+			</div>
+		</div>
+
+		<!--<p>
+			<center>
+				<img style="width:500px" src="../img/handouts/whatsNext/next.png">	
+			</center>
+		</p>-->
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="howtoopen">
+	<h3>Opening a Project or Assignment</h3>
+	
+	<p>
+		Once you've installed Qt Creator, you can download any of the assignment projects available on the assignment page.
+		Note that to open the project, you have 2 options:
+	</p>
+	
+	<ol>
+		<li>
+			<p>
+				Open Qt Creator.
+				Go to File->Open File or Project... <br/><br/>
+				<img src="/img/qt/openFileOrProject.png" class="img-thumbnail"><br/><br/>
+				Then navigate to the project you wish to open and click on the .pro file, i.e. Life.pro.
+				Note, if you directly open the *.h files or *.cpp files instead, this will not work, because it will not open the entire project.
+			</p>
+			
+			<div>
+				<img src="/img/qt/openProFile.png" class="img-thumbnail">
+			</div>
+		</li>
+		<li>
+			<p>
+				Navigate to the project you wish to open in your file system, then just double-click on the .pro file i.e. Life.pro.
+				This will open Qt Creator for you with this project.
+			</p>
+		</li>
+	</ol>
+<div>
+
+<div>
+	<h3>Using Qt Creator</h3>
+	
+	<p>
+		Below is a screenshot of what Qt Creator should look like when you open a project.
+	</p>
+	
+	<div>
+		<img src="/img/qt/qtCreatorFullScreenshot.png" class="img-thumbnail" />
+	</div>
+	
+	<p>
+		Let's breakdown what buttons are where and how you actually edit and run the code.
+		First in the picture below is the View menu.
+		This menu allows you to change how qt creator will look, which can help you in different tasks.
+		You'll mainly use the Edit view and the Debug view. Projects will open in Edit view.
+	</p>
+	
+	<div>
+		<img src="/img/qt/editDebugViews.png" class="img-thumbnail">
+	</div>
+	
+	<p>
+		The files inside of this project will be displayed in the project files window which can be seen below.
+		Note, if you can't see this window, hold down the Alt key and press 0 (zero, the number key) on Windows or the Meta key and press 0 on Mac.
+		The code files for the project can be found in the Headers &rarr; src folder and the Sources &rarr; src folder.
+		The files in the lib/StanfordCPPLib folders are the code files for the Stanford Library which includes classes like Vector, Grid, and Map.
+		Feel free to open up these files and take a look.
+		Just make sure not to change them since your assignments will be graded with a clean copy of those files.
+	</p>
+	
+	<div>
+		<img src="/img/qt/projectFilesWindow.png" class="img-thumbnail" />
+	</div>
+	
+	<p>
+		But how do you run your programs?
+		First, you'll need to build the project by clicking the Build button which is marked by the hammer icon in the picture below.
+		If the project builds, then you can run the project by clicking the play button which is the plain green triangle button shown in the picture below.
+		If you want to debug your project, you should click the debug button which is the green triangle with a bug on it shown in the picture below.
+		Note, your project must be built in debug mode in order to debug your program.
+		You can change the build mode by clicking the computer icon shown in the picture below and selecting the debug option.
+		Most projects by default are built in debug mode.
+	</p>
+	
+	<div>
+		<img src="/img/qt/playBuildWindow.png" class="img-thumbnail" />
+	</div>
+	
+	<p>
+		The last thing to mention is where to view compiler errors, issues, and application output.
+		At the bottom of your screen, you'll see the Issues, Application Output, and Compiler Output options.
+		You can open these windows to see the corresponding information.
+		Sometimes the explanations in the Issues window is not that helpful.
+		In these cases, you should look at the Compile Output or Application Output to see if that gives you more helpful information.
+	</p>
+	
+	<div>
+		<img src="/img/qt/issuesOutputWindow.png" class="img-thumbnail" />
+	</div>
+</div>
+
+<div>
+	<h3>How to Debug</h3>
+	
+	<p>
+		If you have having trouble finding bugs in your program or just want to learn how to debug with Qt Creator's Debugging Tools, here's a handout for you.
+	</p>
+	
+	<ul>
+		<li><a href="/handouts/debugging-with-qt-creator.pdf">Debugging Handout</a></li>
+	</ul>
+</div>
+			</div>
+		</div>
+		
+		
+				
+		
+
+
+	
+
+
+
+<div class="row">
+	<div class="col-md-12">
+		<hr>
+
+		<div class="footer">
+			<p class="pull-left">
+				&#169; Stanford 2016 &#124; Created by 
+				<a href="http://stanford.edu/~cpiech">Chris</a>.
+				CS106B has been developed by many talented teachers. Special thanks to <a href="http://cs.stanford.edu/people/eroberts/">Eric</a> and <a href="www.martystepp.com">Marty</a>.
+			</p>
+		</div>
+	</div>
+</div>
+
+	</div>
+
+</body>
