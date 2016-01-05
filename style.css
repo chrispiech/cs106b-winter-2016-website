@@ -28,6 +28,20 @@ p {
         border-color: #bce8f1;
 }
 
+.secondHeading {
+  margin-top:20px;
+  margin-bottom:10px;
+}
+
+
+.input {
+  color:blue;
+  font-style: bold;
+}
+
+
+
+
 
 /* Index */
 #title {
