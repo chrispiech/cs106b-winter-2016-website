@@ -41,14 +41,17 @@ class Compiler(object):
             os.makedirs(dirPath)
         
     def getPathToRoot(self, relativePath):
-        return 'http://web.stanford.edu/class/cs106b/'
+        return '//web.stanford.edu/class/cs106b/'
         #return self.getRelPathToRoot(relativePath)
 
     def getRelPathToRoot(self, relativePath):
         dirs = self.splitDirs(relativePath)
         depth = len(dirs) - 1
         pathToRoot = ''
-        for _ in range(depth):
+        for i in range(depth, 0, -1):
+            curr = dirs[i]
+            if curr == 'cs106b':
+                break
             pathToRoot += '../'
         return pathToRoot
 
