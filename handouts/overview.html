@@ -7,13 +7,13 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF8">
 
 
-<link href="//web.stanford.edu/class/cs106b/plugins/bootstrap-custom/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="//web.stanford.edu/class/cs106b/style.css">
+<link href="../plugins/bootstrap-custom/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../style.css">
 
 <!-- Java Script -->
-<script src="//web.stanford.edu/class/cs106b/plugins/jquery.min.js"></script>
-<script src="//web.stanford.edu/class/cs106b/plugins/moment.min.js"></script>
-<script src="//web.stanford.edu/class/cs106b/plugins/bootstrap-custom/js/bootstrap.min.js"></script>
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/moment.min.js"></script>
+<script src="../plugins/bootstrap-custom/js/bootstrap.min.js"></script>
 
 <!-- Stanford -->
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
@@ -33,7 +33,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand brand" href="//web.stanford.edu/class/cs106b/">CS106B</a>
+      <a class="navbar-brand brand" href="../">CS106B</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,24 +45,24 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lectures <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="//web.stanford.edu/class/cs106b//lectures/0-Welcome/">0 Welcome</a></li>
-            <li><a href="//web.stanford.edu/class/cs106b//lectures/1-Functions/">1 Functions</a></li>
+            <li><a href="..//lectures/0-Welcome/">0 Welcome</a></li>
+            <li><a href="..//lectures/1-Functions/">1 Functions</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Handouts <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="//web.stanford.edu/class/cs106b//handouts/overview.html">Course Overview</a></li>
-            <li><a href="//web.stanford.edu/class/cs106b//handouts/course-placement.pdf">Course Placement</a></li>
-            <li><a href="//web.stanford.edu/class/cs106b//handouts/honor-code.pdf">Honor Code</a></li>
-            <li><a href="//web.stanford.edu/class/cs106b//handouts/qt-creator.html">QT Creator</a></li>
+            <li><a href="..//handouts/overview.html">Course Overview</a></li>
+            <li><a href="..//handouts/course-placement.pdf">Course Placement</a></li>
+            <li><a href="..//handouts/honor-code.pdf">Honor Code</a></li>
+            <li><a href="..//handouts/qt-creator.html">QT Creator</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assignments <span class="caret"></span></a>
           <ul class="dropdown-menu">
-           <li><a href="//web.stanford.edu/class/cs106b//assn/life.html">1 Life</a></li>
+           <li><a href="..//assn/life.html">1 Life</a></li>
            <!--<li><a href=""><i>None yet!</i></a></li>-->
 
           </ul>
@@ -71,7 +71,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="//web.stanford.edu/class/cs106b//handouts/overview.html"><span class="glyphicon glyphicon-apple" aria-hidden="true"> Overview</span></a></li>
+        <li><a href="..//handouts/overview.html"><span class="glyphicon glyphicon-apple" aria-hidden="true"> Overview</span></a></li>
       </ul>
       
     </div><!-- /.navbar-collapse -->
@@ -95,7 +95,7 @@
 				<hr/>
 
 				<center>
-				<img style="width:600px" src="//web.stanford.edu/class/cs106b/img/overview/overview.png">	
+				<img style="max-width:600px" src="../img/overview/overview.png">	
 			</center>
 			</div>
 		</div>
@@ -123,9 +123,10 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th style="width:200px">Date</th>
-								<th style="width:250px">Topic</th>
-								<th style="width:250px">Reading</th>
+								<th style="width:120px">Date</th>
+								<th style="width:220px">Topic</th>
+								<th style="width:180px">Files</th>
+								<th style="width:200px">Reading</th>
 								<th style="width:300px">Assignment</th>
 							</tr>
 						</thead>
@@ -138,20 +139,35 @@
 
 							<tr class="info">
 								<td>Jan 4</td>
-								<td><a href="//web.stanford.edu/class/cs106b//lectures/0-Welcome/">Course Overview</a></td>
+								<td>
+									<a href="..//lectures/0-Welcome/">Course Overview</a>
+								</td>
+								<td>
+									<a href="..//lectures/0-Welcome/0-Welcome.pptx"><span class="glyphicon glyphicon-blackboard" title="pptx" aria-hidden="true"></span></a>
+									<!--<span class="overviewIcon glyphicon glyphicon-pencil" aria-hidden="true" title="code"></span>-->
+									<a href="..//lectures/0-Welcome/0-Welcome.pdf"><span class="overviewIcon glyphicon glyphicon-file" aria-hidden="true" title="pdf"></span></a>
+								</td>
 								<td>Chapter 1</td>
 								<td></td>
 							</tr>
-							<tr class="success">
+							<tr class="info">
 								<td>Jan 6</td>
-								<td><a href="//web.stanford.edu/class/cs106b//lectures/1-Functions/">Functions</a></td>
+								<td>
+									<a href="..//lectures/1-Functions/">Functions</a>
+								</td>
+								<td>
+									<a href="..//lectures/1-Functions/1-Functions.pptx"><span class="glyphicon glyphicon-blackboard" title="pptx" aria-hidden="true"></span></a>
+									<a href="..//lectures/1-Functions/allCode.zip"><span class="overviewIcon glyphicon glyphicon-pencil" aria-hidden="true" title="code"></span></a>
+									<a href="..//lectures/1-Functions/1-Functions.pdf"><span class="overviewIcon glyphicon glyphicon-file" aria-hidden="true" title="pdf"></span></a>
+								</td>
 								<td>Chapter 2</td>
 								<td>Life (due Jan 15th)</td>
 							</tr>
 
-							<tr class="table-bordered">
+							<tr class="success">
 								<td>Jan 8</td>
 								<td>Vectors and Grids</td>
+								<td></td>
 								<td>Chapter 3</td>
 								<td></td>
 							</tr>
@@ -162,11 +178,13 @@
 								<td>Stacks and Queues</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							<tr class="table-bordered">
 								<td>Jan 13</td>
 								<td>Maps and Sets</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -175,12 +193,14 @@
 								<td>Jan 15</td>
 								<td>The Stack Machine</td>
 								<td></td>
+								<td></td>
 								<td>ADTs (due Jan 25th)</td>
 							</tr>
 
 							<tr class="table-bordered">
 								<td>Jan 18</td>
 								<td>No Class</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -196,6 +216,7 @@
 								<td>Introduction to Recursion</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							
@@ -205,17 +226,21 @@
 								<td>Recursive Procedures</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							<tr  class="table-bordered">
 								<td>Jan 25</td>
 								<td>Recursive Backtracking</td>
 								<td></td>
+								<td></td>
 								<td>Recursion (due	Feb 3rd)</td>
+								
 							</tr>
 							<tr class="table-bordered">
 								<td>Jan 27</td>
 								<td>Memoization</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -223,6 +248,7 @@
 							<tr class="table-bordered">
 								<td>Jan 29</td>
 								<td>Fractals</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -237,16 +263,20 @@
 								<td>Pointers</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 							<tr class="table-bordered">
 								<td>Feb 3</td>
 								<td>Dynamic Allocation</td>
 								<td></td>
+								<td></td>
 								<td>Boggle (due Feb 12)</td>
+								
 							</tr>
 							<tr class="table-bordered">
 								<td>Feb 5</td>
 								<td>Big-O</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -254,7 +284,9 @@
 								<td>Feb 8</td>
 								<td>Classes</td>
 								<td></td>
+								<td></td>
 								<td>Midterm (Feb 9th)</td>
+								
 							</tr>
 
 							
@@ -264,6 +296,7 @@
 								<td>Inheritance</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 
@@ -271,12 +304,15 @@
 								<td>Feb 12</td>
 								<td>Implementing Vector</td>
 								<td></td>
+								<td></td>
 								<td>PQueue (due Feb 22nd)</td>
+								
 							</tr>
 
 							<tr class="table-bordered">
 								<td>Feb 15</td>
 								<td>No Class</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -286,11 +322,13 @@
 								<td>Linked Lists</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							<tr class="table-bordered">
 								<td>Feb 19</td>
 								<td>Hashing</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -305,12 +343,15 @@
 								<td>Feb 22</td>
 								<td>Trees</td>
 								<td></td>
+								<td></td>
 								<td>Huffman (due March 2)</td>
+								
 							</tr>
 
 							<tr class="table-bordered">
 								<td>Feb 26</td>
 								<td>Binary Search Trees</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -322,11 +363,13 @@
 								<td>DAGS</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							<tr class="table-bordered">
 								<td>Feb 29</td>
 								<td>Graphs</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -335,12 +378,15 @@
 								<td>March 2</td>
 								<td>Shortest Distance</td>
 								<td></td>
+								<td></td>
 								<td>Trailblazer (due Mar 11)</td>
+
 							</tr>
 
 							<tr class="table-bordered">
 								<td>March 4</td>
 								<td>Mini Max</td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -356,6 +402,7 @@
 								<td>Advanced Algorithms</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							<tr class="table-bordered">
@@ -363,11 +410,13 @@
 								<td>Advanced C++</td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							<tr class="table-bordered">
 								<td>Mar 11</td>
 								<td>Final Class</td>
+								<td></td>
 								<td></td>
 								<td>Final Exam (March 14)</td>
 							</tr>
