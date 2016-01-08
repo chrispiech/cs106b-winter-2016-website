@@ -210,7 +210,7 @@ The Game of Life is a simulation originally conceived by the British mathematici
 				<div style="height:15px"></div>
 				<div class="row">
 					<div class="col-sm-12">
-							When ready, Compare your programs to these "Example Runs" using the Example Diff Tool. We want your output to match ours exactly:
+							When ready, compare your programs to these "Example Runs" using the Example Diff Tool. We want your output to match ours exactly:
 						
 						<center style="margin-top:5px">
 						<a href="//web.stanford.edu/class/cs106b/handouts/diff.html"><span class="glyphicon glyphicon-check" aria-hidden="true" style="font-size: 5em;"></span><br/>
@@ -341,7 +341,7 @@ fewer than eight neighbors. For example, the top-right X square in the example a
 
 				</p>
 				<p>
-					You will also write code for reading input files. Read a file using an ifstream object, along with functions such as getline (lowercase L) to read lines from the file. Here are some useful ifstream-related functions:
+					You will also write code for reading input files. Read a file using an ifstream object, along with functions such as getline (lowercase L) to read lines from the file. Here are some useful ifstream-related functions from <a href="http://stanford.edu/~stepp/cppdoc/filelib.html">filelib</a> and <a href="http://stanford.edu/~stepp/cppdoc/strlib.html">strlib</a>:
 				</p>
 				<table class="table table-bordered" style="font-size: 14px;">
 					<thead>
@@ -367,6 +367,14 @@ fewer than eight neighbors. For example, the top-right X square in the example a
 					</tr>
 					<tr>
 						<td>
+							<code>fileExists(string &amp; fileName);</code>
+						</td>
+						<td>
+							Checks if a file with the corresponding fileName exists. Returns a bool.
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<code>stringToInteger(str)</code>
 						</td>
 						<td>
@@ -384,7 +392,7 @@ fewer than eight neighbors. For example, the top-right X square in the example a
 					</tr>
 				</table>
 				<p>
-					Make sure to close your input file streams when you are done reading the given file.
+					Make sure to close your input file streams when you are done reading the given file: stream.close().
 
 				</p>
 
