@@ -10,6 +10,13 @@ p {
   text-align: justify;
 }
 
+code {
+    color:black;
+    padding:0px;
+    border:0px;
+    background-color:#F2FFF2;
+}
+
 .subtleHeading {
     font-size: 12px;
     font-weight: 700;
@@ -17,6 +24,10 @@ p {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+pre {-moz-tab-size: 3;} /* Code for Firefox */
+pre {-o-tab-size: 3;} /* Code for Opera 10.6-12.1 */
+pre {tab-size: 3;}
 
 .moment{
   font-style:italic;

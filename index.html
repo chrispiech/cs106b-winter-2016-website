@@ -63,12 +63,16 @@
             <li><a href="//web.stanford.edu/class/cs106b//handouts/honor-code.pdf">Honor Code</a></li>
             <li><a href="//web.stanford.edu/class/cs106b//handouts/qt-creator.html">QT Creator</a></li>
             <li><a href="//web.stanford.edu/class/cs106b//handouts/velociraptorSafety.html">Grids and Raptor Safety</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/bananagrams.html">Bananagrams</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assignments <span class="caret"></span></a>
           <ul class="dropdown-menu">
            <li><a href="//web.stanford.edu/class/cs106b//assn/life.html">1 Life</a></li>
+           <li><a href="//web.stanford.edu/class/cs106b//assn/serafini.html">2 Serafini</a></li>
+           <li role="separator" class="divider"></li>
+           <li><a href="//web.stanford.edu/class/cs106b//assn/contest.html">Contest</a></li>
            <!--<li><a href=""><i>None yet!</i></a></li>-->
 
           </ul>
@@ -180,9 +184,13 @@
 
 				<div>
 				<p class="subtleHeading">ASSIGNMENTS</p>
-					<div class="well">
+					<div class="well well-sm" style="margin-bottom:10px">
+						<a href="//web.stanford.edu/class/cs106b//assn/serafini.html">Assignment 2: Serafini</a>
+					</div>
+					<div class="well well-sm" style="margin-bottom:10px">
 						<a href="//web.stanford.edu/class/cs106b//assn/life.html">Assignment 1: Life</a>
 					</div>
+					
 				</div>
 				<hr/>
 
@@ -233,12 +241,52 @@
 				</div>
 
 				<div style="height:10px"></div>
+
+				<hr/>
 			</div>
 			<div class="col-sm-9" >
 				<!-- Newsfeed -->
 				<div>
 
 					<p class="subtleHeading">NEWSFEED</p>
+
+					<div class="well">
+						<div class="newsfeedHeader">
+							<div class="newsfeedTitle">Serafini Assignment Out</div>
+							<div class="moment">2016011503</div>
+						</div>
+
+						<p>
+							Assignment 2, <a href="//web.stanford.edu/class/cs106b/assn/serafini.html">Serafini</a> goes out today in class. You will implement both word ladders and random writters.<br/>
+							<a href="//web.stanford.edu/class/cs106b/assn/serafini.html"><img src="//web.stanford.edu/class/cs106b/img/assn/serafini/splash.png" style="width:100%; margin-top:10px"></img></a> <br/>
+							
+						</p>
+					</div>
+
+					<div class="well">
+						<div class="newsfeedHeader">
+							<div class="newsfeedTitle">Contest Announced</div>
+							<div class="moment">2016011503</div>
+						</div>
+
+						<p>
+							This quarter we are going to hold an <b>optional</b> <a href="//web.stanford.edu/class/cs106b//assn/contest.html">contest</a>. Prizes will be awarded for problem solving and creativity.<br/>
+							<a href="//web.stanford.edu/class/cs106b/assn/serafini.html"><img src="//web.stanford.edu/class/cs106b/img/assn/contest/splash.jpg" style="width:100%; margin-top:10px"></img></a> <br/>
+							
+						</p>
+					</div>
+
+					<div class="well">
+						<div class="newsfeedHeader">
+							<div class="newsfeedTitle">Bananagrams Solution Posted</div>
+							<div class="moment">2016011503</div>
+						</div>
+
+						<p>
+							In class Wednesday I showed a program that I had written that autonomously played the first 21 tiles in a game called Bananagrams. I posted the code and a <i>brief</i> <a href="//web.stanford.edu/class/cs106b//handouts/bananagrams.html">writeup</a>. To the best of my knowledge this is the first Bananagrams AI to exist :). More importantly it is an example of a full length project (akin to your assignments) that I wrote and shows how I broke down the problem and my own style. 
+							
+						</p>
+					</div>
 
 					<div class="well">
 						<div class="newsfeedHeader">
@@ -279,6 +327,28 @@
 
 					<div class="well">
 						<div class="newsfeedHeader">
+							<div class="newsfeedTitle">First Class</div>
+							<div class="moment">2016010411</div>
+						</div>
+
+						<p>
+							Thanks for coming! That was exciting :). <a href="//web.stanford.edu/class/cs106b/lectures/0-Welcome/0-Welcome.pptx">Here</a> are the slides that went with the lecture. Also take a look at the course <a href="//web.stanford.edu/class/cs106b/handouts/overview.html">overview</a> page for general course logistics. Future slide decks and lecture code will be posted in the schedule. Looking forward to Wednesday. Here is a cartoon of the <a href="//web.stanford.edu/class/cs106b/handouts/overview.html">syllabus</a>:<br/>
+							<img src="//web.stanford.edu/class/cs106b/img/overview/overview.png" style="width:100%"></img> <br/>
+							
+						</p>
+					</div>
+
+
+
+					<!--- The hidden part  -->
+					<center>
+					<button id="earlierButton" type="button" class="btn btn-primary " onclick='$("#earlier").show();$("#earlierButton").hide();'>Load Earlier Announcements</button>
+				</center>
+					<div id="earlier" style="display:none">
+
+
+					<div class="well">
+						<div class="newsfeedHeader">
 							<div class="newsfeedTitle">One time office hour change.</div>
 							<div class="moment">2016010509</div>
 						</div>
@@ -290,18 +360,7 @@
 						
 					</div>
 
-					<div class="well">
-						<div class="newsfeedHeader">
-							<div class="newsfeedTitle">First Class</div>
-							<div class="moment">2016010411</div>
-						</div>
-
-						<p>
-							Thanks for coming! That was exciting :). <a href="//web.stanford.edu/class/cs106b/lectures/0-Welcome/0-Welcome.pptx">Here</a> are the slides that went with the lecture. Also take a look at the course <a href="//web.stanford.edu/class/cs106b/handouts/overview.html">overview</a> page for general course logistics. Future slide decks and lecture code will be posted in the schedule. Looking forward to Wednesday. Here is a cartoon of the <a href="//web.stanford.edu/class/cs106b/handouts/overview.html">syllabus</a>:<br/>
-							<img src="//web.stanford.edu/class/cs106b/img/overview/overview.png" style="width:100%"></img> <br/>
-							
-						</p>
-					</div>
+					
 
 					<div class="well">
 						<div class="newsfeedHeader">
@@ -342,6 +401,11 @@
 						</p>
 
 					</div>
+
+
+					<!--  End of hidden part  -->
+					</div>
+					
 
 				</div>
 			</div>
