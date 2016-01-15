@@ -1,0 +1,14 @@
+hey:que honda
+good times:buenos tiempos
+program:la programa
+map:la mapa
+neighbor:el vecino
+ladder:la escalera
+word:la palabra
+style:el estilo
+collection:la coleccion
+example:el ejemplo
+life:la vida
+set:el conjunto
+queue:la cola
+stack:el monton
