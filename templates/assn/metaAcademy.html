@@ -61,7 +61,7 @@
 					The starter code for this project is available as a ZIP archive:
 				</p>
 				<p>
-					<a onclick="alert('The starter code is being tested. It will be availible at 5pm.')"><span class="glyphicon glyphicon-save-file" aria-hidden="true" style="font-size: 5em;margin-left:5px"></span><br/>
+					<a href="{{pathToRoot}}/assnFiles/meta/cs106b-hw3-starter.zip"><span class="glyphicon glyphicon-save-file" aria-hidden="true" style="font-size: 5em;margin-left:5px"></span><br/>
 					Starter Code</a>
 				</p>
 
@@ -409,7 +409,117 @@ calls ("stack overflow"). This is out of your control. You may ignore this issue
 					<pre class = "well" style="background:white">void <b>personalCurriculum</b>(Map&lt;string, Vector&lt;string> > & prereqMap, string goal)</pre>
 				</p>
 
-				<div class="alert alert-info" role="alert"><b>Coming soon</b>: This part of the assignment write up will be ready by 5:00pm</div>
+				<p>
+					When students learn using an online course, they come with a variety of different backgrounds and goals. Often they don't need to learn every concept in a course and instead they have a particular goal and they just need to learn that goal and all the course concepts that it builds upon. The point of the Personalized Curriculum tool is to compute, for a particular course and a particular goal, output all of the required concepts that the student must learn to be ready to learn "goal." The concepts should be printed in an order such that if the student were to learn the concepts in that order they never would be working on a concept for which they don't have the necessary pre-requisites. Here are two examples:
+				</p>
+
+				<p>
+					<center>
+
+						<img style="width:47%;" src="{{pathToRoot}}img/assn/meta/prereq1.png">	
+						<img style="width:47%; margin-left:5%;" src="{{pathToRoot}}img/assn/meta/prereq2.png">
+						<p style="text-align:center; margin-bottom:15px"><i>Two example runs of Personalized Curriculum</i></p>
+					</center>
+				</p>
+
+				<h4 class="secondHeading">Prerequisite Concepts</h4>
+
+				<p>
+					In order to compute a personalized curriculum we are going to be given a prereqMap that associate each concept with the immediate prerequisites needed for that concept. You are probably familiar with the idea of prerequisites on the course level. Our class cs106b lists cs106a as a prerequisite. The course cs107 lists cs106b as its only prerequisite. However, in order to take cs107 you must first take cs106a then cs106b as prerequisites apply recursively. In general the you can calculate all prerequisites of a concept using the following recursion:
+					<pre><i>allPrereqsOfConcept(prereqMap, concept){
+    it's direct prerequisites and 
+    for (childConcept : direct prerequisites){
+        allPrereqsOfConcept(prereqMap, childConcept)
+    }
+}</i></pre>
+
+
+
+					To further illustrate this point, consider the following chain of prerequisites.
+				</p>
+				
+
+				<p>
+					<center>
+
+						<img style="width:70%;" src="{{pathToRoot}}img/assn/meta/recursionGraph.png">	
+						<p style="text-align:center; margin-bottom:15px"><i>The recursion prerequisite relationship is the smallest one you can test your algorithm on. An arrow means that in order to learn the concept on the right, you must first learn the concept on the left.</i></p>
+					</center>
+				</p>
+
+				<p>
+					If your goal is to learn "exploration recursion" you must first learn "recursion." Before you learn "recursion" you must learn its prerequisites, "collections" and "functions." The pattern continues until you get to "simpleC++" which has no prerequisites. Thus if your goal was to learn "exploration recursion" then a good personalized curriculum for you would be:
+
+					<pre style = "background:white">simpleC++
+function calls
+collections
+recursion
+exploration recursion</pre>
+				</p>
+
+				<p>One important note to make is that, if you recursively expand the prerequisites of "exploration recursion" some concepts will be generated many times. A common mistake will be to output the concept more than once.</p>
+
+				<pre style="background:white">simpleC++
+functionCalls
+simpleC++
+collections
+recursion
+explorationRecursion</pre>
+
+				<p>Use a collection to keep track of the concepts you have already printed so that if you have already told the student they should learn, for example, "simpleC++" you don't list "simpleC++" again.</p>
+
+				<h4 class="secondHeading">Prerequisite Map</h4>
+
+				<p>
+					When you run Personalized Curriculum you will be given the prerequisite map that corresponds to the course the user selected. You do <b>not</b> have to load the prerequisite map from file. As an example, if personalized curriculum was run on the <code>recursion</code> course you would be passed the following <code>prereqMap</code>:
+				</p>
+
+				<p>
+					<pre style="background:white">"fractals"             &rarr; ["recursion"]
+"explorationRecursion" &rarr; ["recursion"]
+"definitionRecursion"  &rarr; ["recursion"]
+"recursion"            &rarr; ["collections", "functionCalls"]</pre>
+				</p>
+
+				<h4 class="secondHeading">Courses</h4>
+
+
+				<p>
+					There are three different courses that we have created:
+				</p>
+				<table class="table table-bordered" style="font-size: 14px;">
+					<thead>
+					<tr>
+					    <th style="width:100px">Command</th>
+					    <th>Description</th> 					  </tr>
+					<tr>
+					</thead>
+						<td>
+							<code>cs106b</code>
+						</td>
+						<td>
+							A general prerequisite map for the entire cs106b course.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>recursion</code>
+						</td>
+						<td>
+							A tiny prerequisite map only focused on the concept of recursion.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>stanfordcs</code>
+						</td>
+						<td>
+							The prerequisite map for many of the courses in the stanford cs department. (There is a corresponding file stanfordcs-names.txt that shows how the course numbers map to course names).
+						</td>
+					</tr>
+					
+					
+				</table>
 
 				<hr/>
 			</div>
@@ -547,7 +657,54 @@ while (scanner.hasMoreTokens()) {
    // do something with token
 }</pre>
 
+				<p>
+					There are two different question grammars that come with the starter code (and the sentence grammar described above):
+				</p>
+				<table class="table table-bordered" style="font-size: 14px;">
+					<thead>
+					<tr>
+					    <th style="width:100px">Command</th>
+					    <th>Description</th> 					  </tr>
+					<tr>
+					</thead>
+						<td>
+							<code>mystery.txt</code>
+						</td>
+						<td>
+							A template for a random mystery trace problem.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>mysteryHard.txt</code>
+						</td>
+						<td>
+							A template for a random mystery trace problem for people who love a challenge.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>collectionsRecursion.txt</code>
+						</td>
+						<td>
+							A template for slightly ambiguous recursion problems using collections.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>sentence.txt</code>
+						</td>
+						<td>
+							This is not a recursion question, but we provided this grammar for testing.
+						</td>
+					</tr>
+					
+					
+				</table>
 
+				<p>
+					Some of the randomly generated questions will be more reasonable than others. That is to be expected. We can either have a team of teachers to vet the output or we could try the questions on students and see which ones lead to the most learning. But that is beyond the scope of this assignment!
+				</p>
 				
 
 				<hr/>
