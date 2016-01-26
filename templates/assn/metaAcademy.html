@@ -410,7 +410,7 @@ calls ("stack overflow"). This is out of your control. You may ignore this issue
 				</p>
 
 				<p>
-					When students learn using an online course, they come with a variety of different backgrounds and goals. Often they don't need to learn every concept in a course and instead they have a particular goal and they just need to learn that goal and all the course concepts that it builds upon. The point of the Personalized Curriculum tool is to compute, for a particular course and a particular goal, output all of the required concepts that the student must learn to be ready to learn "goal." The concepts should be printed in an order such that if the student were to learn the concepts in that order they never would be working on a concept for which they don't have the necessary pre-requisites. Here are two examples:
+					When students learn, they come with a variety of different goals. If a learner wants to master a particular goal-concept they may not need to learn every other concept in the course. Instead they just need to learn that goal-concept and all the course concepts that it builds upon. The point of the Personalized Curriculum tool is to output, for a particular course and a particular goal, all of the required concepts that the student must learn to be ready to learn their "goal-concept." The concepts should be printed in an order such that if the student were to learn the concepts in that order they never would be working on a concept for which they don't have the necessary pre-requisites. Here are two examples:
 				</p>
 
 				<p>
@@ -435,7 +435,7 @@ calls ("stack overflow"). This is out of your control. You may ignore this issue
 
 
 
-					To further illustrate this point, consider the following chain of prerequisites.
+					The example on the left runs personalized curriculum on the "recursion" course, which is a tiny course you can use to test your program (it does not include all concepts in cs106b). Here is the chain of prerequisites for that course:
 				</p>
 				
 
@@ -457,7 +457,7 @@ recursion
 exploration recursion</pre>
 				</p>
 
-				<p>One important note to make is that, if you recursively expand the prerequisites of "exploration recursion" some concepts will be generated many times. A common mistake will be to output the concept more than once.</p>
+				<p>One important note: if you recursively expand the prerequisites of "exploration recursion" some concepts will be generated many times. A common mistake will be to output the concept more than once.</p>
 
 				<pre style="background:white">simpleC++
 functionCalls
