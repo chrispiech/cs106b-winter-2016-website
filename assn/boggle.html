@@ -1,0 +1,585 @@
+<head>
+
+<title>CS106B</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF8">
+
+
+<link href="//web.stanford.edu/class/cs106b/plugins/bootstrap-custom/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//web.stanford.edu/class/cs106b/style.css">
+
+<!-- Java Script -->
+<script src="//web.stanford.edu/class/cs106b/plugins/jquery.min.js"></script>
+<script src="//web.stanford.edu/class/cs106b/plugins/moment.min.js"></script>
+<script src="//web.stanford.edu/class/cs106b/plugins/bootstrap-custom/js/bootstrap.min.js"></script>
+<script src="//web.stanford.edu/class/cs106b/plugins/ace/ace.js" type="text/javascript"></script>
+
+
+<!-- Stanford -->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+	<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand brand" href="//web.stanford.edu/class/cs106b/">CS106B</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <!--<li><a href="#">Lectures</a></li>-->
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lectures <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/0-Welcome/">0 Welcome</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/1-Functions/">1 Functions</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/2-VectorsGrids/">2 Vector and Grid</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/3-StacksQueue/">3 Stack and Queue</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/4-MapsSets/">4 Map and Set</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/5-Collections/">5 The Right Priority</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/6-Recursion/">6 Recursive Thinking</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/7-Fractals/">7 Fractals</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/8-Exploration/">8-Exploration</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/9-Exploration2/">9-Exploration2</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/10-BigO/">10-BigO</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/11-Memoization/">11-Memoization</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Handouts <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/overview.html">Course Overview</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/course-placement.pdf">Course Placement</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/honor-code.pdf">Honor Code</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/qt-creator.html">QT Creator</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/velociraptorSafety.html">Grids and Raptor Safety</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/bananagrams.html">Bananagrams</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/duoslango.html">Duoslango</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/midterm.html">Midterm Info</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assignments <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="//web.stanford.edu/class/cs106b//assn/life.html">1 Life</a></li>
+           <li><a href="//web.stanford.edu/class/cs106b//assn/serafini.html">2 Serafini</a></li>
+           <li><a href="//web.stanford.edu/class/cs106b//assn/metaAcademy.html">3 Meta Academy</a></li>
+           <li><a href="//web.stanford.edu/class/cs106b//assn/boggle.html">4 Boggle</a></li>
+           <li role="separator" class="divider"></li>
+           <li><a href="//web.stanford.edu/class/cs106b//assn/contest.html">Contest</a></li>
+           <!--<li><a href=""><i>None yet!</i></a></li>-->
+
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sections <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="//web.stanford.edu/class/cs106b//sections/section01.pdf">Section 01</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//sections/section01-solutions.pdf">Section 01 Soln</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//sections/section02.pdf">Section 02</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//sections/section02-solutions.pdf">Section 02 Soln</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//sections/section03.pdf">Section 03</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//sections/section03-solutions.pdf">Section 03 Soln</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="//web.stanford.edu/class/cs106b//handouts/help.html">Help Hours Calendar</a></li>
+           <li><a href="//web.stanford.edu/class/cs106b//handouts/diff.html">Example Diff Tool</a></li>
+           <!--<li><a href=""><i>None yet!</i></a></li>-->
+
+          </ul>
+        </li>
+       
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//web.stanford.edu/class/cs106b//handouts/overview.html"><span class="glyphicon glyphicon-apple" aria-hidden="true"> Overview</span></a></li>
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div class="container">
+			
+		<!-- Header -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="pageHeader">
+					<h1>
+						Assignment 4: Boggle
+					</h1>
+
+					<p>
+						Thanks to Julie Zelenski and Eric Roberts for creating this assignment. Modifications by Marty Stepp.
+					</p>
+
+					<p class="subtleHeading">
+						February 2nd, 2016
+					</p>
+
+					<div class="alert alert-info" role="alert"><b>Coming Soon</b>: The handout will be up shortly!</div>
+					
+
+				</div>
+
+
+				<hr/>
+			</div>
+		</div>
+
+		<!--<div class="row" style="margin-bottom:25px">
+					<div class="col-sm-12">
+				<p>
+					<center>
+						<img style="width:70%" src="//web.stanford.edu/class/cs106b/img/assn/boggle/splash.jpg">
+						<p style="text-align:center; margin-bottom:15px"><i>In order to learn recursion, you will teach recursion. <br/>In order to teach recursion, you must first learn recursion. <br/>Thanks to Khan Academy (no affiliation) for the image.</i></p>
+					</center>
+				</p>
+			</div>
+		</div>
+
+		
+
+		<div class="row">
+			<div class="col-sm-9">
+
+				<p>
+					It’s time for a CS106 classic, the venerable word game Boggle!  The Boggle game board is a square grid onto which you randomly distribute a set of letter cubes.  The goal is to find words on the board by tracing a path through adjoining letters.  Two letters adjoin if they are next to each other horizontally, vertically, or diagonally.  There are up to eight letters adjoining a cube.  Each cube can be used at most once in a word.  In the original version, all players work concurrently listing the words they find.  When time is called, duplicates are removed from the lists and the players receive points for their remaining words.
+				</p>
+				<p>
+					Your assignment is to write a program that plays a fun, graphical rendition of this little charmer, adapted for the human and computer to play pitted against one another.  You’ll quickly learn you have little hope of defeating the computer, but it’s awesome to realize you wrote this program that can so soundly thrash you again and again!
+				</p>
+
+				<p>
+					This assignment will introduce you to classes, but the main focus is on designing and implementing recursive algorithms.  
+					The starter code for this project is available as a ZIP archive. A demo is availible as a JAR:
+				</p>
+				<p>
+					<div class="row">
+						<div class="col-xs-3">
+							<center>
+							<a href="//web.stanford.edu/class/cs106b//assnFiles/meta/cs106b-hw3-starter.zip"><span class="glyphicon glyphicon-save-file" aria-hidden="true" style="font-size: 5em;margin-left:5px"></span><br/>
+					Starter Code</a>
+							</center>
+						</div>
+
+						<div class="col-xs-3">
+							<center>
+							<a href="//web.stanford.edu/class/cs106b//assnFiles/meta/cs106b-hw3-starter.zip"><span class="glyphicon glyphicon-play-circle" aria-hidden="true" style="font-size: 5em;margin-left:5px"></span><br/>
+					Demo Jar</a>
+							</center>
+						</div>
+					</div>
+				</p>
+
+				
+
+				<p>
+					Turn in the following files:
+					<ol>
+						<li><code>boggle.cpp</code>, the C++ code for all of your recursion functions.</li>
+						<li><code>boggle.h</code>, the C++ code for all of your recursion functions.</li>
+						<li><code>boggleplay.cpp</code>, the C++ code for all of your recursion functions.</li>
+					</ol>
+				</p>
+
+				<p>
+					This is a pair assignment. You may work in a pair or alone. Find a partner in section or use the course message
+board. If you work as a pair, comment both members' names atop every code file. Only one of you should
+submit the program; do not turn in two copies. Submit using the Paperless system linked on the class web site.
+				</p>
+				
+			</div>
+			<div class="col-sm-3">
+				<div class="well info faq">
+					<b>Due Date:</b> Boggle is due Feb 12th at 5:00pm.
+				</div>
+				<div class="well info faq" >
+					<b>Y.E.A.H hours:</b> <br/>
+					<span class="sidebaricon glyphicon glyphicon-calendar" aria-hidden="true"></span>
+					Tue, Jan 26th<br/>
+						
+					<span class="sidebaricon glyphicon glyphicon-time" aria-hidden="true"></span> 
+					5-6pm<br/>
+
+					<span class="sidebaricon glyphicon glyphicon-home" aria-hidden="true"></span>
+					420-040<br/>
+
+					<span class="sidebaricon glyphicon glyphicon-file" aria-hidden="true"></span>
+					<a href="//web.stanford.edu/class/cs106b//assnFiles/meta/yeah.pdf">Slides</a>
+				</div>
+				<div class="well info faq" style="margin-bottom:5px;">
+					<b>Related Reading:</b> <br/>
+
+
+					<a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclid's Algorithm</a><br/>
+					<a href="https://en.wikipedia.org/wiki/Formal_grammar">Grammars</a><br/>
+					<a href="https://code.org/research">Code.org research</a><br/>
+					<a href="http://www.nytimes.com/2016/01/24/opinion/sunday/what-a-million-syllabuses-can-teach-us.html">Open Syllabus Proj.</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<hr/>
+				<h2>
+					Game Overview
+				</h2>
+				<p>
+					Boggle is a game played on a square grid onto which you randomly distribute a set of letter cubes. Letter cubes are 6-
+sided dice, except that they have a letter on each side rather than a number. The goal is to find words on the board by
+tracing a path through neighboring letters. Two letters are neighbors if they are next to each other horizontally,
+vertically, or diagonally. There are up to eight letters near a cube. Each cube can be used at most once in a word.
+In the real-life version of this game, all players work at the same time, listing the words they find on a piece of paper.
+When time is called, duplicates are removed from the lists and the players receive one point for each unique word, that
+is, for each word that player found that no other player was able to find.
+</p>
+<p>
+You will write a program that plays this game, adapted
+for one human to play against a computer opponent.
+Unfortunately, the computer knows recursive
+backtracking, so it can find every word on the board
+and destroy you every time. But it's still fun to write a
+program that can so soundly thrash you again and again.
+				</p>
+				<p>
+					To begin a game, you shake up the letter cubes and lay
+them out on the board. The human player plays first,
+entering words one by one. Your code first verifies that
+the word is valid, then you add it to the player's word list
+and award the player points according to the word's
+length (one point per letter ≥ 4). A word is valid if it
+meets all of the following conditions:
+				</p>
+				<ol>
+					<li>at least 4 letters long</li>
+					<li>is a word found inthe English dictionary</li>
+					<li>can be formed by connecting neighboring letter cubes (using any given cube only once)</li>
+					<li>has not already been formed by the player in this game (even if there are multiple paths on the board to form the same word, the word is counted at most once)</li>
+				</ol>
+				<div class="well" >
+				<center>
+						<img style="max-width:100%" src="//web.stanford.edu/class/cs106b/img/assn/boggle/newplay.png">
+						<p style="text-align:center; margin-bottom:15px"></p>
+
+					</center>
+						<pre style="background:white">Do you want to generate a random board? y
+It's your turn!
+FYCL
+IOMG
+ORIL
+HJHU
+...
+Your words (3): {"FOIL", "FORM", "ROOF"}
+Your score: 3
+Type a word (or Enter to stop): room
+You found a new word! "ROOM"
+...
+Your words (5): {"FOIL", "FORM", "ROOF",
+ "ROOM", "ROOMY"}
+Your score: 6
+Type a word (or Enter to stop):
+It's my turn!
+My words (16): {"COIF", "COIL", "COIR",
+"CORM", "FIRM", "GIRO", "GLIM", "HOOF",
+"IGLU", "LIMO", "LIMY", "MIRI", "MOIL",
+"MOOR", "RIMY", "ROIL"}
+My score: 16
+Ha ha ha, I destroyed you. Better luck next
+time, puny human!</pre>
+				</div>
+				<p>
+					Once the player has found as many words as they can,
+the computer takes a turn. The computer searches
+through the board to find all the remaining words and
+awards itself points for those words. The computer
+typically beats the player, since it finds all words.
+				</p>
+
+				<p>
+					Your program's output format should exactly match the
+abridged log of execution above. Here are more examples of game logs:
+				</p>
+				<p>
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="//web.stanford.edu/class/cs106b/assnFiles/serafini/output/expected-output-a-1.txt"><span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="font-size: 5em;margin-left:4px"></span><br/>
+									Boggle Run #1</a>
+						</div>
+						<div class="col-sm-2">
+							<a href="//web.stanford.edu/class/cs106b/assnFiles/serafini/output/expected-output-a-2.txt"><span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="font-size: 5em;margin-left:4px"></span><br/>
+									Boggle Run #2</a>
+						</div>
+						<div class="col-sm-2">
+							<a href="//web.stanford.edu/class/cs106b/assnFiles/serafini/output/expected-output-a-3.txt"><span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="font-size: 5em;margin-left:4px"></span><br/>
+									Boggle Run #3</a>
+						</div>
+						<div class="col-sm-2">
+							<a href="//web.stanford.edu/class/cs106b/assnFiles/serafini/output/expected-output-a-4.txt"><span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="font-size: 5em;margin-left:4px"></span><br/>
+									Boggle Run #4</a>
+						</div>
+					</div>
+				</p>
+				
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Setting up the Game Board</h2>
+				<p>
+					The real Boggle game comes with sixteen letter cubes, each with particular letters on each of their six faces. The
+letters on each cube are not random; they were chosen in such a way that common letters come up more often and it
+is easier to get a good mix of vowels and consonants. We want your Boggle game to match this. The following table
+lists all of the letters on all six faces of each of the sixteen cubes from the original Boggle. You should decide on an
+appropriate way to represent this information in your program and declare it accordingly.
+				<code style="text-align: center;">
+					<div class="row">
+						<div class="col-xs-3">AAEEGN</div>
+						<div class="col-xs-3">ABBJOO</div>
+						<div class="col-xs-3">ACHOPS</div>
+						<div class="col-xs-3">AFFKPS</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">AOOTTW</div>
+						<div class="col-xs-3">CIMOTU</div>
+						<div class="col-xs-3">DEILRX</div>
+						<div class="col-xs-3">DELRVY</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">DISTTY</div>
+						<div class="col-xs-3">EEGHNW</div>
+						<div class="col-xs-3">EEINSU</div>
+						<div class="col-xs-3">EHRTVW</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">EIOSST</div>
+						<div class="col-xs-3">ELRTTY</div>
+						<div class="col-xs-3">HIMNQU</div>
+						<div class="col-xs-3">HLNNRZ</div>
+					</div>
+				</code>
+			</p>
+				<p>
+					At the beginning of each game, "shake" the board cubes. There are two different random aspects to consider:
+					<ol>
+						<li>A random location on the 4x4 game board should be chosen for each cube.
+(For example, the <code>AAEEGN</code> cube should not always appear in the top-left square of the board; it should
+randomly appear in one of the 16 available squares with equal probability.)</li>
+						<li>A random side from each cube should be chosen to be the face-up letter of that cube.
+(For example, the <code>AAEEGN</code> cube should not always show <code>A</code>; it should randomly show <code>A</code> 1/3 of the time, <code>E</code> 1/3
+of the time, <code>G</code> 1/6 of the time, and <code>N</code> 1/6 of the time.)</li>
+					</ol>
+					The Stanford C++ libraries have a file shuffle.h with a shuffle function you can use to rearrange the elements of an
+array, Vector, or Grid. See <a href="http://stanford.edu/~stepp/cppdoc/shuffle.html">shuffle.h</a> if you are curious about how the shuffling algorithm works.
+				</p>
+				<p>
+					Your game must also have an option where the user can enter a manual board configuration. In this option, rather
+than randomly choosing the letters to be on the board, the user enters a string of 16 characters, representing the cubes
+from left to right, top to bottom. (This is also a useful feature for testing your code.) Verify that the user's string is
+long enough to fill the board and re-prompt if it is not exactly 16 characters in length. Also re-prompt the user if any
+of the 16 characters is not a letter from A-Z. Your code should work case-insensitively. You should not check
+whether the 16 letters typed could actually be formed from the 16 letter cubes; just accept any 16 alphabetic letters.
+				</p>
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Human Player's Turn</h2>
+				<p>
+					The human player enters each word she finds on the board. As described previously, for each word the user types,
+you must check that it is at least four letters long, contained in the English dictionary, has not already been included in
+the player's word list, and can be formed on the board from neighboring cubes. If any condition fails, alert the user.
+There is no penalty for trying an invalid word, but invalid words also do not count toward the player's list or score.
+				</p>
+				<p>
+					If the word is valid, you add the word to the player's word list and score. The length of the word determines the
+score, with each letter ≥ 4 being worth 1 point. For example, a 4-letter word is worth 1 point; a 5-letter word is worth
+2 points; 6-letter words are worth 3; 7-letter words are worth 4; and so on. The player enters a blank line when done
+finding words, which signals the end of the human's turn.
+				</p>
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Computer's Turn</h2>
+				<p>
+					Once the human player is done entering words, the computer then searches the entire board to find the remaining
+words missed by the human player. The computer earns points for each remaining word found that meets the
+requirements (minimum length, contained in English lexicon, not already found, and can be formed on board). If the
+computer's resulting score is strictly greater than the human's, the computer wins. If the players tie or if the human's
+score exceeds the computer's, the human player wins.
+				</p>
+				<p>
+					You can find all words on the board using recursive backtracking. The idea is to start from a given letter cube, then
+explore neighboring cubes around it and try all partial strings that can be made, then try each neighbor's neighbor, and
+so on. The algorithm is roughly the following:
+				</p>
+				<pre>for each letter cube c:
+  mark cube c as visited. <span class="comment">// choose</span>
+  for each neighboring cube next to c:
+    explore all words that could start with c's letter. <span class="comment">// explore</span>
+  un-mark cube c as visited. <span class="comment">// un-choose</span></pre>
+
+  				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Implementation Details</h2>
+				<p>
+					You will write the following two sets of files. In this section we describe the expected contents of each in detail.
+				</p>
+				<ul class="list-group">
+				  <li class="list-group-item"><code>boggleplay.cpp</code>: client to perform console UI and work with your Boggle class to play a game</li>
+				  <li class="list-group-item"><code>Boggle.h / .cpp></code>: files for a Boggle class representing the state of the current Boggle game</li>
+				</ul>
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>boggleplay.cpp</h2>
+				<p>We have provided you with a file <code>bogglemain.cpp</code> that contains the program's overall main function. The provided
+code prints an introduction message about the game and then starts a loop that repeatedly calls a function called
+<code>playOneGame</code>. After each call to <code>playOneGame</code>, the main code prompts to play again and then exits when the user
+finally says "no". The <code>playOneGame</code> function is not already written; you must write it in <code>boggleplay.cpp</code>. In that
+same file, you can place any other logic and helper functions needed to play one game. You may want to use the
+<code>getYesOrNo</code> function from <a href="http://stanford.edu/~stepp/cppdoc/simpio.html">simpio.h</a> that prompts the user to type yes/no and returns a <code>bool</code>.
+				</p>
+				<p>One aspect of the console UI is that it should "clear" the console between each word the user types, and then re-print
+the game state such as the board words found so far, score, etc. This makes a more pleasant UI where the game state
+is generally visible at the same place on the screen at all times during the game. See the provided sample solution for
+an example. Use the Stanford Library's clearConsole(); function from <a href="http://stanford.edu/~stepp/cppdoc/console.html">console.h</a> to clear the screen.
+				</p>
+				<p>
+					The playOneGame function (along with any sub-functions it calls within the same file) should perform <b>all</b> console
+user interaction such as printing out the current state of the game. No other file should have <code>cout</code> or user/file input.
+				</p>
+				<p>But boggleplay.cpp is not meant to be the place to store the majority of the game's state, logic, or algorithms. Your
+boggleplay file will interact with a class you will write named Boggle, described on the following pages. We describe a
+partial set of methods that your Boggle class must have. The intention is that your boggleplay code will call all of
+these methods to help achieve the overall task of playing the game. For example, no recursion or backtracking should
+take place in boggleplay; all such recursive searching should happen in the Boggle class. If you find that your
+boggleplay code is implementing a lot of complex logic itself, or that boggleplay is never calling a particular public
+method from the Boggle class, this is likely a sign that you have not divided the functionality in your code the way
+that we intend, which might lead to a style deduction.
+				</p>
+				<p>Later in the spec we will describe a graphical user interface (GUI) that your Boggle game must display. As much as
+possible, the code to create and interact with this GUI should be in your boggleplay.cpp file. The one exception is
+the code to highlight and un-highlight letter cubes on the GUI as your algorithms are searching for words typed by
+the human player. Highlighting should be done in the Boggle class, because it would be very difficult to separate that
+code out of your recursive backtracking algorithms that are defined in the Boggle class
+				</p>
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Boggle.cpp / h</h2>
+				<p>The majority of your code should be in the Boggle.h and Boggle.cpp files, which should contain the implementation
+of a Boggle class. A Boggle object represents the current board and state for a single Boggle game, and it should
+have member functions to perform most major game functions like finding words on the board and keeping score.
+Declare all Boggle class members in Boggle.h, and implement their bodies in Boggle.cpp. We provide you a
+skeleton that declares some required members below that your class <b>must</b> have.
+				</p>
+				<p>
+					Do not change the headings of any of the following functions. Do not add parameters; do not rename
+them. You must implement exactly these functions with exactly these headings, or you will receive a
+deduction. (See note below about const.)
+				</p>
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Graphical User Interface</h2>
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Development Strategy and Hints</h2>
+				<hr/>
+			</div>
+		</div>-->
+
+		
+
+		
+
+		
+
+
+
+		
+		
+
+
+
+
+<div class="row">
+	<div class="col-md-12">
+		<hr>
+
+		<div class="footer">
+			<p class="pull-left">
+				&#169; Stanford 2016 &#124; Created by 
+				<a href="http://stanford.edu/~cpiech">Chris</a>.
+				CS106B has been developed by many talented teachers. Special thanks to <a href="http://cs.stanford.edu/people/eroberts/">Eric</a> and <a href="www.martystepp.com">Marty</a>.
+			</p>
+		</div>
+	</div>
+</div>
+
+	</div>
+
+	<script>
+		$('.editor').each(function( index ) {
+			var editor = ace.edit(this);
+			editor.setTheme('ace/theme/eclipse');
+		   editor.getSession().setMode("ace/mode/c_cpp");
+		   editor.setReadOnly(true);
+		   editor.setShowPrintMargin(false);
+		   editor.renderer.setShowGutter(false); 
+		   editor.setOptions({
+			    maxLines: Infinity,
+			    fontSize: "10pt"
+			});
+		   editor.setOption("highlightActiveLine", false);
+		});
+	</script>
+
+</body>
