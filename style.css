@@ -64,6 +64,15 @@ pre {tab-size: 3;}
   font-style: bold;
 }
 
+.sidebarOuter {
+    position: relative;
+}
+@media (min-width: 760px) {
+    .sidebar {
+        width:160px;
+        
+    }
+}
 
 
 
