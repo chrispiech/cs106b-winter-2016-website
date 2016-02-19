@@ -1,0 +1,15 @@
+A 
+   B 
+      D 
+         NULL
+         NULL
+      E 
+         NULL
+         NULL
+   C 
+      F 
+         NULL
+         NULL
+      G 
+         NULL
+         NULL
