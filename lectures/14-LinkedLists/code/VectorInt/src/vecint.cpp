@@ -36,7 +36,6 @@ void VecInt::doubleAllocation() {
     }
     delete[] data;
     data = newData;
-    delete[] newData;
 }
 
 int VecInt::get(int index){
