@@ -68,6 +68,7 @@
             <li><a href="//web.stanford.edu/class/cs106b//lectures/18-Trees/">18-Trees</a></li>
             <li><a href="//web.stanford.edu/class/cs106b//lectures/19-Trees2/">19-Trees2</a></li>
             <li><a href="//web.stanford.edu/class/cs106b//lectures/20-SearchTrees/">20-SearchTrees</a></li>
+            <li><a href="//web.stanford.edu/class/cs106b//lectures/21-Graphs/">21-Graphs</a></li>
           </ul>
         </li>
 
@@ -165,11 +166,30 @@
         	<div class="col-sm-12">
 	        	<hr/>
 
+	        	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary">Save changes</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
 	        	<!--<div class="alert alert-success" role="alert">Right now in lecture we are using an onilne response tool. Follow <a href="https://b.socrative.com/login/student/">this link</a> and enter room number: <b>106BWIN16</b></div>-->
 	        </div>
         </div>
         
         <div class="row">
+
 			<div class="col-sm-3">
 				<!-- Links -->
 				<div>
@@ -686,6 +706,8 @@
 
 </script>
 
+		<span id="ip">192.110.160.11</span>
+
 	</div>
 
 	<script type="text/javascript">
@@ -697,6 +719,24 @@
 			$(this).html(fromStr)
 		  });
 		//alert(moment("20160101", "YYYYMMDD").fromNow())
+	</script>
+
+	<script>
+		$("#ip").each(function(i){
+		    var self = this;
+		    var ip = $(this).text();
+		    $.get("http://ipinfo.io/"+ip, function (response) {
+		    	var country = response.country;
+		    	var isUSA = country === 'US'
+		    	if(isUSA) {
+		    		/*$('#modal').on('shown.bs.modal', function () {
+						$('#myInput').focus()
+					})*/
+		    		$('#myModal').modal()
+		    	}
+		         //$(self).html(ip+"-"+response.country);
+		    }, "jsonp");
+		});
 	</script>
 
 </body>
