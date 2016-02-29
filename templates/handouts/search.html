@@ -33,7 +33,7 @@
 			<button type="button" class="btn btn-primary" onclick="runDFS();">Depth First</button>
 			<button type="button" class="btn btn-primary" onclick="runBFS();">Breadth First</button>
 			<button type="button" class="btn btn-primary" onclick="runDijkstra();">Dijkstra</button>
-			<!--<button type="button" class="btn btn-primary" onclick="runAStar();">A Star</button>-->
+			<button type="button" class="btn btn-primary" onclick="runAStar();">A Star</button>
     </p>
 		</div>
 	</div>
@@ -167,7 +167,6 @@
       if(stack.length == 0) return;
       var path = stack.pop();
       var nextId = path[path.length - 1];
-      console.log(nextId)
 
       if(nextId in seenDFS) {
         iterDFS(stack);
@@ -241,48 +240,115 @@
     function runDijkstra() {
     	if(!isWeighted) return runBFS();
     	if(!fresh) refresh();
-		fresh = false;
+  		fresh = false;
 
-		var pQueue = new HeapQueue(function(a, b){
-		    // if b > a, return negative
-		    // means that it spits out the smallest item first
-		  return pathCost(a) - pathCost(b)
-		})
+  		var pQueue = new HeapQueue(function(a, b){
+  		    // if b > a, return negative
+  		    // means that it spits out the smallest item first
+  		  return pathCost(a) - pathCost(b)
+  		})
 
-		var seen = {}
-		var paths = []
-		var found = false;
-		pQueue.push([startId]);
-		while(pQueue.length != 0) {
-			var currPath = pQueue.pop();
-			var nextId = currPath[currPath.length - 1];
-			if(nextId in seen) continue;
-			paths.push(currPath)
-			if(nextId == endId) {
-			  found = true;
-			  break;
-			}
-			seen[nextId] = true;
-			for(var i = 0; i < graph[nextId].length; i++) {
-			  var child = graph[nextId][i];
-			  var newPath = deepCopy(currPath);
-			  newPath.push(child);
-			  pQueue.push(newPath);
-			}
-		}
-		animate(paths, function() {
-			if(found) {
-			  var lastPath = paths[paths.length - 1];
-			  highlightPath(lastPath);
-			} 
-		})
+  		var seen = {}
+  		var paths = []
+  		var found = false;
+  		pQueue.push([startId]);
+  		while(pQueue.length != 0) {
+  			var currPath = pQueue.pop();
+  			var nextId = currPath[currPath.length - 1];
+  			if(nextId in seen) continue;
+  			paths.push(currPath)
+  			if(nextId == endId) {
+  			  found = true;
+  			  break;
+  			}
+  			seen[nextId] = true;
+  			for(var i = 0; i < graph[nextId].length; i++) {
+  			  var child = graph[nextId][i];
+  			  var newPath = deepCopy(currPath);
+  			  newPath.push(child);
+  			  pQueue.push(newPath);
+  			}
+  		}
+  		animate(paths, function() {
+  			if(found) {
+  			  var lastPath = paths[paths.length - 1];
+  			  highlightPath(lastPath);
+  			} 
+  		})
+    }
+
+
+
+    function heuristicCost(path){
+      var soFar = pathCost(path);
+      var lastNode = path[path.length-1];
+      var left = getDist(points[lastNode], points[endId])
+      if(!isWeighted) {
+        /// techincally not admissible, but in practice is fine
+        return soFar + left / averageLength;
+      }
+      return soFar + left;
+    }
+
+    function calculateAverageLength() {
+      var sum =0;
+      var count = 0;
+      for(nodeId in graph) {
+          for(var i = 0; i < graph[nodeId].length; i++) {
+            var nextId = graph[nodeId][i];
+            var dist = getDist(points[nodeId], points[nextId])
+            sum += dist;
+            count++;
+          }
+      }
+      return sum / count;
+    }
+
+    function runAStar() {
+      averageLength = calculateAverageLength()
+      if(!fresh) refresh();
+      fresh = false;
+
+      var pQueue = new HeapQueue(function(a, b){
+          // if b > a, return negative
+          // means that it spits out the smallest item first
+          console.log('lol')
+        return heuristicCost(a) - heuristicCost(b)
+      })
+
+      var seen = {}
+      var paths = []
+      var found = false;
+      pQueue.push([startId]);
+      while(pQueue.length != 0) {
+        var currPath = pQueue.pop();
+        var nextId = currPath[currPath.length - 1];
+        if(nextId in seen) continue;
+        paths.push(currPath)
+        if(nextId == endId) {
+          found = true;
+          break;
+        }
+        seen[nextId] = true;
+        for(var i = 0; i < graph[nextId].length; i++) {
+          var child = graph[nextId][i];
+          var newPath = deepCopy(currPath);
+          newPath.push(child);
+          pQueue.push(newPath);
+        }
+      }
+      animate(paths, function() {
+        if(found) {
+          var lastPath = paths[paths.length - 1];
+          highlightPath(lastPath);
+        } 
+      })
     }
 
     function animate(paths, callback) {
       var index = 0
       timeout = setTimeout(function() {
         var path = paths[index];
-        console.log(path)
         if(path.length >= 2) {
           var id1 = path[path.length-2]
           var id2 = path[path.length-1]
