@@ -3,6 +3,7 @@
 	%include templates/parts/head.html
 
 	<script src="{{pathToRoot}}js/queue.js"></script>
+	<script src="{{pathToRoot}}js/heapQueue.js"></script>
 
 </head>
 <body>
@@ -24,13 +25,14 @@
 		</div>
 	</div>
 
+	
 	<div class="row">
 		<div class="col-sm-12">
       <p>
-			<button type="button" class="btn btn-primary" onclick="randomGraph();">Random Graph</button>
 			<button type="button" class="btn btn-primary" onclick="runDFS();">Recursive Exploration</button>
 			<button type="button" class="btn btn-primary" onclick="runDFS();">Depth First</button>
 			<button type="button" class="btn btn-primary" onclick="runBFS();">Breadth First</button>
+			<!--<button type="button" class="btn btn-primary" onclick="runAStar();">A Star</button>-->
     </p>
 		</div>
 	</div>
@@ -38,10 +40,24 @@
 	<div class="row">
 		<div class="col-sm-12">
       <p>
-			<canvas id="graphCanvas">
-				Why you not have canvas?
-			</canvas>
-    </p>
+			<button type="button" class="btn btn-info" onclick="unweightedGraph();">Random Graph</button>
+		</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+	      <p>
+				<canvas id="graphCanvas">
+					Why you not have canvas?
+				</canvas>
+	    </p>
+	    <h2>
+	    	Path hops: <span id="hopsNum"></span>
+	    </h2>
+	    <h2>
+	    	Path cost: <span id="costNum"></span>
+	    </h2>
 		</div>
 	</div>
 
@@ -49,13 +65,13 @@
 
     CANVAS_HEIGHT = 500
     CANVAS_WIDTH = 730
-    N_POINTS = 500 //500
-    EDGE_DIST = 40 //40
     INSET = 5
     ANIMATION_PAUSE = 10
 
-		points = {}
+	points = {}
     graph = {}
+    weights = {}
+    isWeighted = false;
     startId = null;
     endId = null;
     canvas = null;
@@ -70,7 +86,7 @@
 
 		window.onload = function() {
       initCanvas();
-      randomGraph();
+      unweightedGraph();
 		}
 
     function initCanvas() {
@@ -129,13 +145,15 @@
           drawLine(points[nodeId], points[nextId], "red");
         }
       }
+      $("#hopsNum").html(path.length);
+      $("#costNum").html(pathCost(path))
     }
 
 
     seenDFS = {};
 
     function runDFS() {
-      if(!fresh) drawGraph();
+      if(!fresh) refresh();
       fresh = false;
       stack = [];
       seenDFS = {};
@@ -172,8 +190,21 @@
       timeout = setTimeout(function(){iterDFS(stack)}, ANIMATION_PAUSE);
     }
 
+    function pathCost(path) {
+    	if(!isWeighted) return path.length
+    	var cost = 0
+    	for(var i = 0; i < path.length-1; i++) {
+    		var a = path[i]
+    		var b = path[i + 1]
+    		var key = a + "->" + b
+    		var weight = weights[key]
+    		cost += weight
+    	}
+    	return cost;
+    } 
+
     function runBFS() {
-      if(!fresh) drawGraph();
+      if(!fresh) refresh();
       fresh = false;
       var queue = new Queue();
       var seen = {}
@@ -205,6 +236,46 @@
       })
     }
 
+    function runDijkstra() {
+    	if(!isWeighted) return runBFS();
+    	if(!fresh) refresh();
+		fresh = false;
+
+		var pQueue = new HeapQueue(function(a, b){
+		    // if b > a, return negative
+		    // means that it spits out the smallest item first
+		  return pathCost(a) - pathCost(b)
+		})
+
+		var seen = {}
+		var paths = []
+		var found = false;
+		pQueue.push([startId]);
+		while(pQueue.length != 0) {
+			var currPath = pQueue.pop();
+			var nextId = currPath[currPath.length - 1];
+			if(nextId in seen) continue;
+			paths.push(currPath)
+			if(nextId == endId) {
+			  found = true;
+			  break;
+			}
+			seen[nextId] = true;
+			for(var i = 0; i < graph[nextId].length; i++) {
+			  var child = graph[nextId][i];
+			  var newPath = deepCopy(currPath);
+			  newPath.push(child);
+			  pQueue.push(newPath);
+			}
+		}
+		animate(paths, function() {
+			if(found) {
+			  var lastPath = paths[paths.length - 1];
+			  highlightPath(lastPath);
+			} 
+		})
+    }
+
     function animate(paths, callback) {
       var index = 0
       timeout = setTimeout(function() {
@@ -228,6 +299,8 @@
 
     function drawGraph() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      $("#hopsNum").html("");
+    	$("#costNum").html("");
 
       for(nodeId in graph) {
         for(var i = 0; i < graph[nodeId].length; i++) {
@@ -236,7 +309,7 @@
         }
       }
 
-      for(var i = 0; i < N_POINTS; i++) {
+      for(var i = 0; i < points.length; i++) {
         drawCircle(points[i], 2, "black")
       }
       drawCircle(points[startId], 10, "green")
@@ -245,38 +318,99 @@
       fresh = true;
     }
 
-		function randomGraph() {
-      //get a reference to the canvas
-      
+    function drawWeights() {
+    	ctx.font = "12px Courier";
+	    ctx.fillStyle = "black"
+	    console.log(weights)
+	    for(nodeId in graph) {
+	        for(var i = 0; i < graph[nodeId].length; i++) {
+	        	var nextId = graph[nodeId][i];
+	        	var midX = (points[nodeId].x + points[nextId].x) / 2;
+	        	var midY = (points[nodeId].y + points[nextId].y) / 2;
+	        	var key = nodeId + "->" + nextId
+	        	var weight = weights[key];
+	        	ctx.fillText(weight,midX,midY);
+	        }
+	    }
+    }
 
+    function unweightedGraph() {
+    	isWeighted = false;
+    	randomGraph(500, 40, 5);
+    	drawGraph();
+    }
+
+    function weightedGraph() {
+    	isWeighted = true;
+    	randomGraph(25, 200, 100);
+    	weights = {}
+    	for(nodeId in graph) {
+	        for(var i = 0; i < graph[nodeId].length; i++) {
+	          var nextId = graph[nodeId][i];
+	          var key1 = nodeId + "->" + nextId
+	          var key2 = nextId + "->" + nodeId
+	          if(!(key1 in weights)) {
+	          	var d = getDist(points[nodeId], points[nextId])
+	          	var m = 1 + Math.random() * 10;
+	          	var dist = Math.ceil(d * m);
+	          	weights[key1] = dist;
+	          	weights[key2] = dist;
+	          }
+	        }
+	    }
+
+	    drawGraph();
+	    drawWeights();
+    }
+
+    function isTooClose(point, i, minDist) {
+    	for(var j = 0; j < i; j++) {
+    		if(getDist(points[j], point) < minDist) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+
+    function refresh() {
+    	drawGraph();
+    	if(isWeighted) {
+    		drawWeights();
+    	}
+    }
+
+	function randomGraph(nPoints, edgeDist, minDist) {
       //clear graph and canvas
       clearTimeout(timeout);
       points = []
       graph = {}
-      
-
-
-			for(var i = 0; i < N_POINTS; i++) {
+      for(var i = 0; i < nPoints; i++) {
         var centerX = INSET + (canvas.width - INSET *2) * Math.random();
         var centerY = INSET + (canvas.height - INSET *2) * Math.random();
         var point = new Point(centerX, centerY);
+        if(minDist > 0) {
+        	while(isTooClose(point, i, minDist)) {
+        		centerX = INSET + (canvas.width - INSET *2) * Math.random();
+        		centerY = INSET + (canvas.height - INSET *2) * Math.random();
+        		point = new Point(centerX, centerY);
+        	}
+        }
+        
         points[i] = point;
         graph[i] = []
-			}
+	  }
       startId = randomIndex(points);
       endId = randomIndex(points);
 
-      for(var i = 0; i < N_POINTS; i++) {
+      for(var i = 0; i < nPoints; i++) {
         for(var j = 0; j < i; j++) {
-          if(getDist(points[i], points[j]) < EDGE_DIST) {
-            graph[i].push(j);
-            graph[j].push(i);
+          if(getDist(points[i], points[j]) < edgeDist) {
+	            graph[i].push(j);
+	            graph[j].push(i);
           }
         }
       }
-
-      drawGraph();
-		}
+	}
 
 	</script>
 		
