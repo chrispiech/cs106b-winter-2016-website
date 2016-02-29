@@ -50,7 +50,7 @@
 				        </p>
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-primary">Thanks</button>
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">Thanks</button>
 				      </div>
 				    </div>
 				  </div>
@@ -587,7 +587,6 @@
 
 		%include templates/parts/footer.html
 
-		<span id="ip">192.110.160.11</span>
 
 	</div>
 
@@ -603,19 +602,17 @@
 	</script>
 
 	<script>
-		$("#ip").each(function(i){
-		    var self = this;
-		    var ip = $(this).text();
-		    $.get("http://ipinfo.io/"+ip, function (response) {
-		    	var country = response.country;
-		    	var isUSA = country === 'US'
-		    	if(!isUSA) {
-		    		
+		window.onload = function() {
+		    $.get("http://ipinfo.io", function(response) {
+		    	console.log(response);
+		    	if(!(response.region === 'California')) {
 		    		$('#myModal').modal()
-		    	}
-		         //$(self).html(ip+"-"+response.country);
-		    }, "jsonp");
-		});
+		    	} 
+		    	
+			}, "jsonp");
+
+		    
+		}
 	</script>
 
 </body>
