@@ -20,6 +20,13 @@
 				<h1>
 					Search
 				</h1>
+        <p>
+            Written by Chris Piech.
+          </p>
+
+          <p class="subtleHeading">
+            February 29th, 2016
+          </p>
 			</div>
 			<hr/>
 		</div>
@@ -60,8 +67,87 @@
 	    <h2>
 	    	Path cost: <span id="costNum"></span>
 	    </h2>
+      <hr>
 		</div>
 	</div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Think about the todo-list collection</h1>
+      <p>
+        A common pattern amongst the search algorithms (with the semi-exception of recursive exploration) is that they all build a collection which stores paths (or in some implementations nodes) that should be explored. I call this the search "todo" list. 
+      </p>
+      <p>
+          <center>
+            <img style="width:60%" src="{{pathToRoot}}img/handouts/search/todo.png">
+            <!--<p style="text-align:center; margin-bottom:15px"><i>PQueue</i></p>-->
+          </center>
+      </p>
+      <p>
+        Here is an example. Dijkstra uses a PriorityQueue to store the todo list. Change the collection type to switch between Breadth First Search and A Star.
+        <pre class="editor">function dijkstras(startNode, goal) {
+    pQueue = PriorityQueue()
+    pQueue.enqueue(newPath(startNode), 0)
+    seen = Set();
+    while !pQueue.isEmpty(): 
+        currPath = pQueue.dequeue()
+        currState = last(currPath);
+        if(currState is goal) return currPath;
+        if(seen contains currState) continue;
+        seen.add(currState);
+        for nextState in getNextStates(currState)
+            path = newPath(currPath, nextState);
+            pQueue.enqueue(path, getCost(path));
+        }
+    }
+    // failed to find a path
+}</pre>
+      </p>
+      <p>The fundamental difference between Depth First Search, Breadth First Search, Dijkstra and A Star is the collection used to represent the "todo" list of paths to process.
+      </p>
+      <p>
+        <table class="table " style="font-size: 14px;">
+            <thead>
+            <tr>
+                <th style="">Algorithm</th>
+                <th>Todo Collection</th> 
+                <th>Benefit</th>            
+              </tr>
+              </thead>
+            <tr>
+              <td>Depth First Search</td>
+              <td>Stack</td>
+              <td>Uses little memory</td>
+            </tr>
+            <tr>
+              <td>Breadth First Search</td>
+              <td>Queue</td>
+              <td>Finds shortest hops</td>
+            </tr>
+            <tr>
+              <td>Dijkstra's Algorithm</td>
+              <td>Priority Queue</td>
+              <td>Finds shortest path</td>
+            </tr>
+            <tr>
+              <td>A Star</td>
+              <td>Priority Queue</td>
+              <td>Finds shortest path <i>fast</i></td>
+            </tr>
+          </table>
+      </p>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Worth Thinking About</h1>
+      <p>In all casses Recursive Exploration is the same of Depth First Search.</p>
+      <p>Breadth first search always finds the shortest path for unweighted graphs, but not for weighted graphs.</p>
+      <p>For graphs with unweighted edges, Breadth First Search is the same as Dijkstra's.</p>
+    </div>
+  </div>
 
 	<script>
 
@@ -70,7 +156,21 @@
 	</script>
 		
 		
-				
+				<script>
+    $('.editor').each(function( index ) {
+      var editor = ace.edit(this);
+      editor.setTheme('ace/theme/eclipse');
+       editor.getSession().setMode("ace/mode/c_cpp");
+       editor.setReadOnly(true);
+       editor.setShowPrintMargin(false);
+       editor.renderer.setShowGutter(false); 
+       editor.setOptions({
+          maxLines: Infinity,
+          fontSize: "10pt"
+      });
+       editor.setOption("highlightActiveLine", false);
+    });
+  </script>
 		
 
 

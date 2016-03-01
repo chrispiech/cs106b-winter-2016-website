@@ -41,8 +41,8 @@ class Compiler(object):
             os.makedirs(dirPath)
         
     def getPathToRoot(self, relativePath):
-        return '//web.stanford.edu/class/cs106b/'
-        #return self.getRelPathToRoot(relativePath)
+        #return '//web.stanford.edu/class/cs106b/'
+        return self.getRelPathToRoot(relativePath)
 
     def getRelPathToRoot(self, relativePath):
         dirs = self.splitDirs(relativePath)
