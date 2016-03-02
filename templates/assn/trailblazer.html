@@ -399,7 +399,61 @@ double h = heuristicFunction(v1, v2);   // get an A* heuristic between these ver
 					</a>
 				</h2>
 				<div style="display:hidden" id="maze">
-					<p>Coming soon (by 5pm)</p>
+					<p>
+						Your final task in this assignment is to implement Kruskal's algorithm for finding a minimum spanning tree.  Your function should accept a graph as a parameter, and you should return a set of pointers to edges in the graph such that those edges would connect the graph's vertexes into a minimum spanning tree.  (Don't actually add/remove edges from the graph object passed in by calling addEdge, removeEdge, etc. on it.  Just return the set of edges separately.)  Specifically, your task is to write a function with the following signature:
+					</p>
+					<p>
+						<pre>Set<Edge*> kruskal(BasicGraph& graph)</pre>
+					</p>
+					<p>Recall the pseudocode for Kruskal's algorithm from lecture:</p>
+					<p>
+						<pre>kruskal(graph):
+    Place each vertex into its own "cluster" (group of reachable vertexes).
+    Put all edges into a priority queue, using weights as priorities.
+    While there are two or more separate clusters remaining:
+        Dequeue an edge e from the priority queue.
+        If the start and finish vertexes of e are not in the same cluster:
+            Merge the clusters containing the start and finish vertexes of e.
+            Add e to your spanning tree.
+    Once the while loop terminates, your spanning tree is complete.</pre>
+					</p>
+					<p>
+						The specific application we'll Kruskal's algorithm to solve is the problem of generating new random mazes.  As discussed earlier in this handout, you can think of a maze as a graph, where the vertexes are connected as follows.  The following figure would be a fully connected maze with no walls:
+					</p>
+					<p>
+						<center>
+							<img style="width:40%" src="{{pathToRoot}}img/assn/trailblazer/grid.png">
+						</center>
+					</p>
+					<p>
+						If you assign each edge a random weight and then run Kruskal's algorithm on the resulting graph, you will end up with a spanning tree; there will be exactly one path between each pair of vertexes.  For example, assigning the edges in the above graph weights as follows and running Kruskal's algorithm would produce the following result:
+					</p>
+					<p>
+						<center>
+							<img style="width:80%" src="{{pathToRoot}}img/assn/trailblazer/kruskal1.png">
+						</center>
+					</p>
+					<p>In the above tree, lines represent edges between connected neighbors, which are passable.  Neighbors that are not connected by an edge can be thought of as having an impassable "wall" between them.  You can turn the above tree into a maze by drawing lines in all of the empty space, as shown here:
+					</p>
+					<p>
+						<center>
+							<img style="width:80%" src="{{pathToRoot}}img/assn/trailblazer/kruskal2.png">
+						</center>
+					</p>
+					<p>
+						Whenever you click the GUI's "Load" button with one of the "Random" options selected, our starter code will generate a maze of the given size with every vertex connected to all of its neighbors, as in the "fully connected" maze figure above.  Our code will randomly assign weights to each edge for you; you shouldn't change the weights we pass in.  Then we will pass the graph to your algorithm for you to find the minimum spanning tree.  Once you return your set of edges, our starter code will process your set and fill in "walls" between any neighbors that are not directly connected by an edge.  The resulting maze will show in the GUI.  Once you've made a maze, you can run your path-finding algorithms to locate paths between points in the maze.  Implementing this function raises questions such as:
+						<ol>
+							<li>How will you keep track of which nodes are in each cluster?</li>
+							<li>How will you determine which cluster a node belongs to?</li>
+							<li>How will you merge together two clusters?</li>
+						</ol>
+					</p>
+					<p>
+						Think about these issues yourself and come up with a clean and efficient way of solving the problem.  Our own sample solution is able to generate "Large" sized mazes in a few seconds' time at most, and you should strive for similar efficiency.  If your maze generation algorithm takes, say, close to a minute or more to finish, optimize it.
+					</p>
+					<p>
+						For Kruskal's algorithm (described next), your code must find a valid minimum spanning tree on the given graph.  If there are several of equal total weight, any will suffice.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -408,13 +462,18 @@ double h = heuristicFunction(v1, v2);   // get an A* heuristic between these ver
 			<div class="col-sm-12">
 				<hr/>
 				<h2>
-					<a onclick="$('#maze').toggle()">
+					<a onclick="$('#creative').toggle()">
 						Creative Aspect
 						<span class="caret"></span>
 					</a>
 				</h2>
-				<div style="display:hidden" id="maze">
-					<p>Coming soon (by 5pm)</p>
+				<div style="display:hidden" id="creative">
+					<p>Turn in files map-custom.txt and map-custom.jpg representing a map graph of your own.  Put the files into the res/ folder of your project.  The text file contains information about the graph's vertexes and edges.  The graph can be whatever you want, so long as it is not essentially the same as any of the provided graphs.  Your image can be any (non-offensive) JPEG image you like; we encourage you to use a search engine like Google Image Search to find an interesting background.  The text file's format should exactly match the following example, from map-small.txt.  For full credit, your file should load successfully into the program without causing an error and be searchable by the user.</p>
+					<p>
+						<center>
+							<img style="width:100%" src="{{pathToRoot}}img/assn/trailblazer/creative.png">
+						</center>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -423,18 +482,65 @@ double h = heuristicFunction(v1, v2);   // get an A* heuristic between these ver
 			<div class="col-sm-12">
 				<hr/>
 				<h2>
-					<a onclick="$('#maze').toggle()">
+					<a onclick="$('#strategy').toggle()">
 						Development Strategy
 						<span class="caret"></span>
 					</a>
 				</h2>
-				<div style="display:hidden" id="maze">
-					<p>Coming soon (by 5pm)</p>
+				<div style="display:hidden" id="strategy">
+					<ul>
+						<li>Trace through the algorithms by hand on small sample graphs before coding them.</li>
+						<li>Work step-by-step.  Complete each algorithm before starting the next one.  You can test each individually even if others are incomplete.  We suggest doing DFS/BFS, then Dijkstra's, then A*, and finally Kruskal's.</li>
+						<li>Start out with tiny worlds first.  It is much easier to trace your algorithm and/or print every step of its execution if the world is small.  Once your output matches perfectly on tiny files, go to small, medium, large.</li>
+
+						<li>Remember that edge costs are doubles, not ints.</li>
+						<li>In A* search, when storing the candidate distance to a vertex, do not add the heuristic value in.  The heuristic is only used when setting the priorities in the priority queue, not when setting the cost fields of vertexes.</li>
+						<li>Don't forget to keep previous pointers up-to-date in Dijkstra's algorithm or A* search.  Otherwise, though you'll dequeue the vertexes in the proper order, your resulting path might end up incorrect.</li>
+
+						<li>In Dijkstra's algorithm, don't stop your algorithm early when you enqueue the ending vertex; stop it when you dequeue the ending vertex (that is, when you color the vertex green).</li>
+						<li>When merging clusters together in Kruskal's algorithm, remember that every vertex in the same cluster as either endpoint (not just the endpoints themselves) should be merged together into one resulting cluster.</li>
+
+					</ul>
+					<hr/>
 				</div>
 			</div>
 		</div>
 
 		
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>
+					<a onclick="$('#extension').toggle()">
+					Possible Extra Features 
+					<span class="caret"></span>
+				</a>
+				</h2>
+				
+				<div id="extension" style="display:none">
+					<p>
+						Though your solution to this assignment must match all of the specifications mentioned previously, it is allowed and encouraged for you to add extra features to your program if you'd like to go beyond the basic assignment. Here are some example ideas for extra features that you could add to your program.
+					</p>
+					<ol>
+						<li><b>Implement bidirectional search:</b>  A common alternative to using A* search is to use a bidirectional search algorithm, in which you search outward from both the start and end vertexes simultaneously.  As soon as the two searches find a vertex in common, you can construct a path from the start vertex to the end vertex by joining the two paths to that vertex together.  Try coding this algorithm up as a fifth algorithm choice.</li>
+						<li><b>Implement a disjoint-set forest:</b>  When implementing Kruskal's algorithm, you need a way to keep track of which vertexes in the graph are connected to one another.  While it's possible to do this using the standard collections types, there is an extremely simple and much faster way to do this using a disjoint-set forest, a specialized data structure that makes it easy to determine if two vertexes are connected and to connect pairs of vertexes.  It is not particularly hard to code up a disjoint-set forest, and doing so can dramatically reduce time required to create a maze.</li>
+						<li><b>Make a new world type:</b>  The existing code has several classes that extend a superclass World to represent maps, mazes, and terrains.  Add your own new subclass for a type of world that we didn't include.</li>
+						<li><b>Write better heuristics: </b> The heuristics we have provided for estimating terrain costs and map / maze distances are simple admissible heuristics that work reasonably well.  Try seeing if you can modify these functions to produce more accurate heuristics.  If you do this correctly, you can cut down on the amount of unnecessary searching required.  However, make sure that your heuristics are admissible; that is, they should never overestimate the distance from any starting vertex to any destination vertex.</li>
+						<li><b>Choose a different maze-generation algorithm: </b> Kruskal's algorithm is only one of many ways to generate a random maze.  Another minimum spanning tree algorithm called Prim's algorithm can also be used here to generate random mazes.  Try adding Prim's algorithm in addition to Kruskal's algorithm for maze generation.  Can you generate more complicated mazes and maps?</li>
+						<li><b>Write a better terrain generator:  </b>Our starter code generates terrain uses the diamond-square algorithm, coupled with a Gaussian blur.  Many other algorithms exist that can generate random terrains, such as the 2D Perlin Noise algorithm.  Try implementing a different terrain generator and see if it produces better results.</li>
+						<li><b>Other:</b> If you have your own creative idea for an extra feature, ask your SL and/or the instructor about it.</li>
+					</ol>
+					<h4 class="secondHeading">Indicating that you have done extra features:</h4>
+					<p>
+						 If you complete any extra features, then in the comment heading on the top of your program, please list all extra features that you worked on and where in the code they can be found (what functions, lines, etc. so that the grader can look at their code easily).
+					</p>
+					<h4 class="secondHeading">Submitting a program with extra features:</h4>
+					<p>Since we use automated testing for part of our grading process, it is important that you submit a program that conforms to the preceding spec, even if you want to do extra features. If your feature(s) cause your program to change the output that it produces in such a way that it no longer matches the expected sample output test cases provided, you should submit two versions of your program file: a first one named life.cpp without any extra features added (or with all necessary features disabled or commented out), and a second one named life-extra.cpp with the extra features enabled. Please distinguish them in by explaining which is which in the comment header. Our turnin system saves every submission you make, so if you make multiple submissions we will be able to view all of them; your previously submitted files will not be lost or overwritten.</p>
+
+
+				</div>
+
+			</div>
+		</div>
 
 
 
