@@ -1,0 +1,50 @@
+<html>
+<head>
+
+  <title>Class Playlist</title>
+
+  <!-- CSS -->
+  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Java Script -->
+  <script src="plugins/jquery.min.js"></script>
+  <script src="playlist.js"></script>
+
+</head>
+<body>
+  <!-- Contents are put in a fixed width area -->
+  <div class="container">
+
+    <!-- Title -->
+    <h1>Class Playlist</h1>
+
+    <!-- Search Bar -->
+    <div class="form-inline">
+      <!-- Artist Input -->
+      <div class="form-group">
+        <label for="artistInput">Artist</label>
+        <input type="text" class="form-control" id="artistInput" placeholder="Artist">
+      </div>
+      <!-- Song Name Input -->
+      <div class="form-group">
+        <label for="songNameInput">Song Name</label>
+        <input type="text" class="form-control" id="songNameInput" placeholder="Song Name">
+      </div>
+      <!-- Add Button -->
+      <button type="submit" class="btn btn-primary" id="addButton">Add Song</button>
+    </div>
+
+    <!-- Horizontal Line -->
+    <hr/>
+    
+    <!-- Song List Area -->
+    <h2>Class Songs</h2>
+    <div id="songList">
+      <i>Nothing yet</i>
+    </div>
+</div>
+
+ 
+</body>
+</html>

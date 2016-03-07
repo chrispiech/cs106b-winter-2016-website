@@ -1,0 +1,44 @@
+<head>
+
+<title>Search</title>
+
+<!-- Include CSS -->
+<link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- INclude Java Script -->
+<script src="plugins/jquery.min.js"></script>
+<script src="plugins/queue.js"></script>
+<script src="search.js"></script>
+
+</head>
+<body>
+
+	<!-- Fixed width area -->
+  <div class="container">
+
+    <!-- Title -->
+		<h1>
+			Search
+		</h1>
+
+    <!-- Horizontal Line -->
+		<hr/>
+
+    <!-- Button -->
+    <p>
+			<button type="button" class="btn btn-primary" id="bfsButton">Breadth First</button>
+    </p>
+	
+    <!-- Drawing Canvas -->
+    <p>
+			<canvas id="graphCanvas"></canvas>
+    </p>
+
+    <!-- Large Text -->
+    <h2>
+    	Path hops: <span id="hopsNum"></span>
+    </h2>
+
+	</div>
+
+</body>
