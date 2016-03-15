@@ -8,9 +8,9 @@
 	<!-- Navigation Bar -->
 	%include templates/parts/navBar.html
 
-	<div class="container">
+	<div class="container" id="indexContainer">
 			
-		<div class="row">
+		<div class="row" id = "indexHead">
 
 
 			<div class="col-sm-12">
@@ -62,7 +62,7 @@
         
         <div class="row">
 
-			<div class="col-sm-3">
+			<div class="col-sm-3" id="infoCol">
 				<!-- Links -->
 				<div>
 					<p class="subtleHeading">RESOURCES</p>
@@ -195,6 +195,7 @@
 				<div style="height:10px"></div>
 
 				<hr/>
+				
 			</div>
 			<div class="col-sm-9" >
 				<!-- Newsfeed -->
@@ -208,13 +209,11 @@
 							<div class="moment">2016031510</div>
 						</div>
 						<p>
-							I truly appreciated being part of this class. You have my respect. 
-
 							Tomorrow, as we push your knowledge into new frontiers, we will remember that something better awaits each and every one of us as long as we have the courage to keep going.  
 						</p>
 						<p>
 
-We will remember that something happened in this group of students; that we are not as divided as our  education system would suggest; 
+We will remember that we are not as divided as our  education system would suggest; 
 that you are one class; and together, you will be part of the next chapter in the computer science story :). It was fun CS106B. See you all around!
 						</p>
 						<p>
@@ -670,6 +669,27 @@ that you are one class; and together, you will be part of the next chapter in th
 
 	</div>
 
+	<!--<script>
+		var BOTTOM_POS = 0;
+		var INFO_COL = null;
+
+		window.onload = function() {
+			// inforCol_absBottomY - screen_height
+			//var infoTop = document.getElementById("infoCol").getBoundingClientRect().top;
+			//var infoHeight = $("#infoCol").height()
+			//BOTTOM_POS = infoTop + infoHeight - screen.height;
+			INFO_COL = $('#infoCol')
+		}
+
+		window.onscroll = function () {
+			// point at which I want to start scrolling is about 866
+			// offset from the scroll top is about 875
+			var topPos = $(document.body).scrollTop() - 875;
+			//console.log($(document.body).scrollTop())
+			INFO_COL.css({"position" : "relative", "top" : topPos});
+		};
+	</script>-->
+
 	<script type="text/javascript">
 		$( ".moment" ).each(function( i ) {
 			var date = $(this).html()
@@ -682,17 +702,17 @@ that you are one class; and together, you will be part of the next chapter in th
 	</script>
 
 	<script>
-		window.onload = function() {
-		    $.get("http://ipinfo.io", function(response) {
-		    	console.log(response);
-		    	if(!(response.region === 'California')) {
-		    		$('#myModal').modal()
-		    	} 
-		    	
-			}, "jsonp");
+	    $.get("http://ipinfo.io", function(response) {
+	    	console.log(response);
+	    	if(!(response.region === 'California')) {
+	    		$('#myModal').modal()
+	    	} 
+	    	
+		}, "jsonp");
+	</script>
 
-		    
-		}
+	<script>
+		
 	</script>
 
 </body>
