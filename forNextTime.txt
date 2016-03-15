@@ -1,0 +1,6 @@
+- Use github education for pair programming
+- Clean up discussion of search
+- Introduce the idea of "trees" earlier in recursion
+- Better talk about the backtracking process
+- YEAH slides for assignment 7 were wrong
+- Be more forceful with Dijkstra
